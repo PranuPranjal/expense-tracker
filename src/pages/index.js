@@ -77,24 +77,24 @@ const Home = () => {
       <div className="flex justify-end gap-4">
         <button
           onClick={() => router.push('/transactions')}
-          className="button button-secondary flex items-center gap-2"
+          className="button button-secondary flex items-center gap-3"
         >
-          <FaHistory />
-          Transaction History
+          <FaHistory className="text-lg" />
+          <span>Transaction History</span>
         </button>
         <button
           onClick={() => router.push('/add-transaction')}
-          className="button button-primary flex items-center gap-2"
+          className="button button-primary flex items-center gap-3"
         >
-          <FaPlus />
-          Add Transaction
+          <FaPlus className="text-lg" />
+          <span>Add Transaction</span>
         </button>
         <button
           onClick={() => router.push('/budget-settings')}
-          className="button button-secondary flex items-center gap-2"
+          className="button button-secondary flex items-center gap-3"
         >
-          <FaCog />
-          Budget Settings
+          <FaCog className="text-lg" />
+          <span>Budget Settings</span>
         </button>
       </div>
 
@@ -102,7 +102,7 @@ const Home = () => {
       {isClient && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="card">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-4">
               <FaWallet className="text-primary text-xl" />
               <h2 className="text-xl font-semibold">{currentMonthName} Summary</h2>
             </div>
@@ -110,14 +110,14 @@ const Home = () => {
               <div>
                 <p className="text-gray-600">Total Expenses</p>
                 <p className="text-2xl font-bold text-primary">
-                  ${monthlyTotal.toFixed(2)}
+                  ₹{monthlyTotal.toFixed(2)}
                 </p>
               </div>
               <div>
                 <p className="text-gray-600">Highest Spending Category</p>
                 <p className="text-xl font-semibold">{highestSpendingCategory}</p>
                 <p className="text-primary font-medium">
-                  ${(categorySpending[highestSpendingCategory] || 0).toFixed(2)}
+                  ₹{(categorySpending[highestSpendingCategory] || 0).toFixed(2)}
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Home = () => {
 
           {/* Recent Transactions */}
           <div className="card">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-4">
               <FaChartLine className="text-primary text-xl" />
               <h2 className="text-xl font-semibold">Recent Transactions</h2>
             </div>
@@ -146,7 +146,7 @@ const Home = () => {
                   <p className={`text-lg font-semibold ${
                     parseFloat(transaction.amount) > 0 ? 'text-green-600' : 'text-red-600'
                   }`}>
-                    ${Math.abs(parseFloat(transaction.amount)).toFixed(2)}
+                    ₹{Math.abs(parseFloat(transaction.amount)).toFixed(2)}
                   </p>
                 </div>
               ))}

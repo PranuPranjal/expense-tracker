@@ -77,7 +77,6 @@ const TransactionForm = ({ categories, addTransaction, editingTransaction, onUpd
       <div className="space-y-4">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <FaFileAlt className="text-gray-400" />
           </div>
           <input
             type="text"
@@ -90,7 +89,6 @@ const TransactionForm = ({ categories, addTransaction, editingTransaction, onUpd
 
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <FaMoneyBillWave className="text-gray-400" />
           </div>
           <input
             type="number"
@@ -103,7 +101,6 @@ const TransactionForm = ({ categories, addTransaction, editingTransaction, onUpd
 
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <FaCalendarAlt className="text-gray-400" />
           </div>
           <input
             type="date"
@@ -115,7 +112,6 @@ const TransactionForm = ({ categories, addTransaction, editingTransaction, onUpd
 
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <FaTags className="text-gray-400" />
           </div>
           <select
             className="input pl-10"

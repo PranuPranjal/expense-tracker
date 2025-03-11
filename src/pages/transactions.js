@@ -46,9 +46,9 @@ const TransactionsPage = () => {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => router.push('/')}
-          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+          className="p-2 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center"
         >
-          <FaArrowLeft className="text-gray-600" />
+          <FaArrowLeft className="text-gray-600 text-lg" />
         </button>
         <h1 className="text-2xl font-bold">Transaction History</h1>
       </div>

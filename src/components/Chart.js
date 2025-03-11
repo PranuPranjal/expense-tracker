@@ -40,9 +40,9 @@ const Chart = ({ transactions }) => {
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip 
-          formatter={(value) => new Intl.NumberFormat('en-US', {
+          formatter={(value) => new Intl.NumberFormat('en-IN', {
             style: 'currency',
-            currency: 'USD'
+            currency: 'INR'
           }).format(value)}
         />
         <Bar dataKey="value" fill="#8884d8" />

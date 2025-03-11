@@ -43,9 +43,9 @@ const CategoryPieChart = ({ transactions }) => {
       return (
         <div className="bg-white p-3 border rounded-lg shadow">
           <p className="font-semibold text-lg">{data.name}</p>
-          <p className="text-gray-600">{new Intl.NumberFormat('en-US', {
+          <p className="text-gray-600">{new Intl.NumberFormat('en-IN', {
             style: 'currency',
-            currency: 'USD'
+            currency: 'INR'
           }).format(data.value)}</p>
           <p className="text-sm text-gray-500">{data.percentage}% of total</p>
         </div>
@@ -72,9 +72,9 @@ const CategoryPieChart = ({ transactions }) => {
                 <span className="text-gray-500 text-sm">{entry.percentage}%</span>
               </div>
               <p className="text-sm text-gray-600">
-                {new Intl.NumberFormat('en-US', {
+                {new Intl.NumberFormat('en-IN', {
                   style: 'currency',
-                  currency: 'USD'
+                  currency: 'INR'
                 }).format(entry.value)}
               </p>
             </div>

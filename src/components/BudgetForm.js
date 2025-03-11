@@ -45,20 +45,20 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
           {Object.entries(categoryBudgets).map(([category, budget]) => (
             <div key={category} className="flex items-center gap-3">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-semibold text-white">
                   {category}
                 </label>
                 <input
                   type="number"
                   value={budget}
                   onChange={(e) => handleUpdateBudget(category, e.target.value)}
-                  className="input mt-1"
+                  className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
                   min="0"
                 />
               </div>
               <button
                 onClick={() => handleDeleteCategory(category)}
-                className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors"
+                className="p-2 text-red-400 hover:bg-gray-700 rounded-full transition-all duration-200 hover:scale-110 hover:shadow-md"
                 title="Delete category"
               >
                 <FaTrash />
@@ -71,27 +71,27 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
         {isEditing ? (
           <form onSubmit={handleSubmit} className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-semibold text-white">
                 Category Name
               </label>
               <input
                 type="text"
                 value={newCategory}
                 onChange={(e) => setNewCategory(e.target.value)}
-                className="input mt-1"
+                className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
                 placeholder="Enter category name"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-semibold text-white">
                 Budget Amount
               </label>
               <input
                 type="number"
                 value={newBudget}
                 onChange={(e) => setNewBudget(e.target.value)}
-                className="input mt-1"
+                className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
                 placeholder="Enter budget amount"
                 min="0"
                 required
@@ -104,7 +104,7 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
               <button
                 type="button"
                 onClick={() => setIsEditing(false)}
-                className="button bg-gray-100 hover:bg-gray-200 text-gray-700"
+                className="button bg-gray-700 hover:bg-gray-600 text-white transition-all duration-200 hover:shadow-lg"
               >
                 Cancel
               </button>
@@ -113,7 +113,7 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
         ) : (
           <button
             onClick={() => setIsEditing(true)}
-            className="button button-primary w-full flex items-center justify-center gap-2"
+            className="button button-primary w-full flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg"
           >
             <FaPlus />
             Add New Category
