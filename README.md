@@ -1,40 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Expense Tracker App
+
+A modern, responsive web application for tracking personal expenses and managing budgets. Built with Next.js, MongoDB, and Tailwind CSS.
+
+## Features
+
+### Dashboard
+- Real-time expense tracking and visualization
+- Monthly summary with total expenses and highest spending category
+- Latest transactions display
+- Interactive charts:
+  - Category-wise expense distribution (Pie Chart)
+  - Budget vs. Actual comparison
+  - Monthly expense trends
+
+### Transaction Management
+- Add, edit, and delete transactions
+- Categorize expenses
+- View transaction history
+- Sort and filter capabilities
+- Date-based organization
+
+### Budget Management
+- Set and manage category-wise budgets
+- Real-time budget tracking
+- Visual budget vs. actual comparison
+- Monthly budget reset
+
+### Data Visualization
+- Monthly expense bar chart
+- Category-wise pie chart
+- Budget comparison chart
+- Responsive and interactive charts
+
+## Technology Stack
+
+- **Frontend**: Next.js, React
+- **Styling**: Tailwind CSS
+- **Database**: MongoDB
+- **Charts**: Recharts
+- **Icons**: React Icons
+- **State Management**: React Hooks
+- **API**: REST API with Next.js API routes
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
 
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd expense-tracker
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env.local` file in the root directory and add your MongoDB connection string:
+```
+MONGODB_URI=your_mongodb_connection_string
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+expense-tracker/
+├── components/         # React components
+├── pages/             # Next.js pages
+│   ├── api/          # API routes
+│   └── ...           # Page components
+├── public/           # Static files
+├── styles/          # Global styles
+└── utils/           # Utility functions
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Key Components
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `TransactionForm`: Add/Edit transaction details
+- `TransactionList`: Display and manage transactions
+- `CategoryPieChart`: Visualize expense distribution
+- `BudgetComparisonChart`: Compare budget vs. actual spending
+- `Chart`: Display monthly expense trends
 
-## Learn More
+## API Endpoints
 
-To learn more about Next.js, take a look at the following resources:
+- `GET /api/transactions`: Fetch all transactions
+- `POST /api/transactions`: Create new transaction
+- `PUT /api/transactions`: Update existing transaction
+- `DELETE /api/transactions`: Delete transaction
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Features in Detail
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Transaction Management
+- Add transactions with description, amount, category, and date
+- Edit existing transactions
+- Delete transactions
+- View transaction history
+- Filter and sort capabilities
 
-## Deploy on Vercel
+### Budget Management
+- Set monthly budgets for different categories
+- Track spending against budgets
+- Visual representations of budget utilization
+- Automatic monthly reset
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Reporting and Analytics
+- Monthly expense summaries
+- Category-wise spending analysis
+- Historical trend analysis
+- Budget variance analysis
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Next.js team for the amazing framework
+- Tailwind CSS for the utility-first CSS framework
+- Recharts for the beautiful charts
+- MongoDB team for the powerful database
+- React Icons for the comprehensive icon set
