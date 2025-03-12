@@ -73,6 +73,14 @@ const Home = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-6">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary">
+          Expense Tracker
+        </h1>
+        <p className="text-gray-600 mt-2">Manage your expenses efficiently</p>
+      </div>
+
       {/* Navigation Buttons */}
       <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-4">
         <button
