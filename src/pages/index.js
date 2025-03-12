@@ -74,24 +74,24 @@ const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8 space-y-6">
       {/* Navigation Buttons */}
-      <div className="flex justify-end gap-4">
+      <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-4">
         <button
           onClick={() => router.push('/transactions')}
-          className="button button-secondary flex items-center gap-3"
+          className="button button-secondary flex items-center gap-3 w-full sm:w-auto"
         >
           <FaHistory className="text-lg" />
           <span>Transaction History</span>
         </button>
         <button
           onClick={() => router.push('/add-transaction')}
-          className="button button-primary flex items-center gap-3"
+          className="button button-primary flex items-center gap-3 w-full sm:w-auto"
         >
           <FaPlus className="text-lg" />
           <span>Add Transaction</span>
         </button>
         <button
           onClick={() => router.push('/budget-settings')}
-          className="button button-secondary flex items-center gap-3"
+          className="button button-secondary flex items-center gap-3 w-full sm:w-auto"
         >
           <FaCog className="text-lg" />
           <span>Budget Settings</span>
@@ -100,7 +100,7 @@ const Home = () => {
 
       {/* Monthly Summary */}
       {isClient && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           <div className="card">
             <div className="flex items-center gap-4 mb-4">
               <FaWallet className="text-primary text-xl" />
@@ -131,7 +131,7 @@ const Home = () => {
             </div>
             <div className="space-y-4">
               {lastThreeTransactions.map((transaction) => (
-                <div key={transaction._id} className="flex justify-between items-center pb-3 border-b last:border-b-0">
+                <div key={transaction._id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b last:border-b-0 gap-2">
                   <div>
                     <p className="font-medium">{transaction.description}</p>
                     <p className="text-gray-600">{transaction.category}</p>
@@ -159,21 +159,27 @@ const Home = () => {
       {isClient && (
         <div className="space-y-6">
           {/* Category and Budget Charts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="card p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="card p-4 overflow-x-auto">
               <h3 className="text-lg font-semibold mb-4">{currentMonthName} Expenses by Category</h3>
-              <CategoryPieChart transactions={monthlyTransactions} />
+              <div className="min-w-[300px]">
+                <CategoryPieChart transactions={monthlyTransactions} />
+              </div>
             </div>
-            <div className="card p-4">
+            <div className="card p-4 overflow-x-auto">
               <h3 className="text-lg font-semibold mb-4">{currentMonthName} Budget vs Actual</h3>
-              <BudgetComparisonChart budgetData={budgetData} />
+              <div className="min-w-[300px]">
+                <BudgetComparisonChart budgetData={budgetData} />
+              </div>
             </div>
           </div>
           
           {/* Monthly Expense Trend */}
-          <div className="card p-4">
+          <div className="card p-4 overflow-x-auto">
             <h3 className="text-lg font-semibold mb-4">Monthly Expense Trend</h3>
-            <Chart transactions={transactions} />
+            <div className="min-w-[300px]">
+              <Chart transactions={transactions} />
+            </div>
           </div>
         </div>
       )}

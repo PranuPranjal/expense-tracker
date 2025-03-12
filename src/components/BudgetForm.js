@@ -43,22 +43,22 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
         {/* Existing Categories */}
         <div className="grid gap-3">
           {Object.entries(categoryBudgets).map(([category, budget]) => (
-            <div key={category} className="flex items-center gap-3">
-              <div className="flex-1">
-                <label className="block text-sm font-semibold text-white">
+            <div key={category} className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <div className="flex-1 w-full">
+                <label className="block text-sm font-semibold text-white mb-1 sm:mb-0">
                   {category}
                 </label>
                 <input
                   type="number"
                   value={budget}
                   onChange={(e) => handleUpdateBudget(category, e.target.value)}
-                  className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
+                  className="input text-white bg-gray-700 border-gray-600 focus:border-blue-500 w-full"
                   min="0"
                 />
               </div>
               <button
                 onClick={() => handleDeleteCategory(category)}
-                className="p-2 text-red-400 hover:bg-gray-700 rounded-full transition-all duration-200 hover:scale-110 hover:shadow-md"
+                className="p-2 text-red-400 hover:bg-gray-700 rounded-full transition-all duration-200 hover:scale-110 hover:shadow-md self-end sm:self-center"
                 title="Delete category"
               >
                 <FaTrash />
@@ -69,42 +69,44 @@ const BudgetForm = ({ categoryBudgets, onUpdateBudgets }) => {
 
         {/* Add New Category */}
         {isEditing ? (
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div>
-              <label className="block text-sm font-semibold text-white">
-                Category Name
-              </label>
-              <input
-                type="text"
-                value={newCategory}
-                onChange={(e) => setNewCategory(e.target.value)}
-                className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
-                placeholder="Enter category name"
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-white mb-1">
+                  Category Name
+                </label>
+                <input
+                  type="text"
+                  value={newCategory}
+                  onChange={(e) => setNewCategory(e.target.value)}
+                  className="input text-white bg-gray-700 border-gray-600 focus:border-blue-500 w-full"
+                  placeholder="Enter category name"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-white mb-1">
+                  Budget Amount
+                </label>
+                <input
+                  type="number"
+                  value={newBudget}
+                  onChange={(e) => setNewBudget(e.target.value)}
+                  className="input text-white bg-gray-700 border-gray-600 focus:border-blue-500 w-full"
+                  placeholder="Enter budget amount"
+                  min="0"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-white">
-                Budget Amount
-              </label>
-              <input
-                type="number"
-                value={newBudget}
-                onChange={(e) => setNewBudget(e.target.value)}
-                className="input mt-1 text-white bg-gray-700 border-gray-600 focus:border-blue-500"
-                placeholder="Enter budget amount"
-                min="0"
-                required
-              />
-            </div>
-            <div className="flex gap-2">
-              <button type="submit" className="button button-primary flex-1">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button type="submit" className="button button-primary flex-1 w-full">
                 Add Category
               </button>
               <button
                 type="button"
                 onClick={() => setIsEditing(false)}
-                className="button bg-gray-700 hover:bg-gray-600 text-white transition-all duration-200 hover:shadow-lg"
+                className="button bg-gray-700 hover:bg-gray-600 text-white transition-all duration-200 hover:shadow-lg w-full sm:w-auto"
               >
                 Cancel
               </button>
